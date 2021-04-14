@@ -57,10 +57,11 @@ exports.postSignUp = (req, res, next) => {
     const email  = req.body.email;
     const password = req.body.password;
     const password2 = req.body.password2;
+    
 
     let errors = [];
 
-    if (!name || !email || !password || !password2) {
+    if (!name || !email || !password || !password2 ) {
         res.send({ msg: "Please fill in all fields" });
     }
 
@@ -107,3 +108,12 @@ exports.postSignUp = (req, res, next) => {
 
 };
 
+// exports.getLogout = (req, res, next) => {
+//     req.logout();
+//     res.send("Logged Out Page");
+// };
+
+// exports.postLogout = (req, res, next) => {
+//     req.logout();
+//     res.send("Logged Out");
+// };

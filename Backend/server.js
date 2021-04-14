@@ -11,7 +11,10 @@ const usersRouter = require("./routers/users");
 app.use("/users", usersRouter);
 
 const adminRouter = require("./routers/admin");
-app.use("/admin", adminRouter)
+app.use("/admin", adminRouter);
+
+const managerRouter = require("./routers/manager");
+app.use("/manager", managerRouter);
 
 
 const port = 3033;
