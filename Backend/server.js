@@ -10,6 +10,9 @@ app.use(express.urlencoded({ extended: true}));
 const usersRouter = require("./routers/users");
 app.use("/users", usersRouter);
 
+const adminRouter = require("./routers/admin");
+app.use("/admin", adminRouter)
+
 
 const port = 3033;
 
