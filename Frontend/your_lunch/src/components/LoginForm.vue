@@ -9,8 +9,8 @@
                 <input type="password" name="password" id="password" placeholder="Password *" required> <br>
 
                 <p>
-                    Don't have an account? <a href="./signup"> <i><b>Sign up</b> </i></a> <br>
-                    Go straight to  <a href="../"> <i><b>Home</b> </i></a>
+                    Don't have an account? <router-link to="/signup"> <i><b>Sign up</b> </i></router-link> <br>
+                    Go straight to  <router-link to="../"> <i><b>Home</b> </i></router-link>
                 </p>
         
                 <button class="loginbtn" type="submit">LogIn</button>

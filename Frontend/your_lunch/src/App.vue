@@ -1,18 +1,17 @@
 <template>
   <div>
-    <!--<img alt="Vue logo" src="./assets/lunchlogo.png"> -->
-    <LoginPage />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
-import LoginPage from './Pages/LoginPage.vue'
+// import SignUpPage from './Pages/SignUpPage.vue'
 
 export default {
   name: 'App',
   components: {
-    LoginPage
+    // SignUpPage
   }
 }
 </script>
