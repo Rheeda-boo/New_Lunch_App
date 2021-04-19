@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const Coupon = require('../models/coupon');
+
 const bcrypt = require("bcrypt");
 
 exports.getAddUser = (req, res, next ) => {
@@ -70,7 +72,25 @@ exports.getAllUsers = (req, res ) => {
         else{
             console.log(user.length);
             res.send(user.length);
-        }
+        };
+    });
+};
+
+exports.getAddCoupon = (req, res) => {
+    res.send("Add Coupon Page");
+}
+
+exports.postAddCoupon = (req, res) => {
+    const code = req.body.code;
+    const coupon = new Coupon ({
+        code: code,
+        date: new Date()
     })
+    .save()
+    .then((value) => {
+        console.log(code)
+        res.send({msg: "Coupon added successfully"})
+    })
+    .catch((value) => console.log(value));
 };
 
