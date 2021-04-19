@@ -9,12 +9,12 @@ router.post("/adduser", adminController.postAddUser);
 router.get("/allusers", adminController.getAllUsers);
 
 router.get("/coupons", adminController.getAddCoupon);
-router.post("/coupons", adminController.postAddCoupon);
+router.post("/addcoupons", adminController.postAddCoupon);
+router.post("/coupons", adminController.postRandomCoupon);
 
 
 // router.post("/login", adminController.postLogin);
 // router.post("/signup", adminController.postSignUp);
-
 
 
 module.exports = router;

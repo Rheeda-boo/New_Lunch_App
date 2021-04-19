@@ -82,15 +82,58 @@ exports.getAddCoupon = (req, res) => {
 
 exports.postAddCoupon = (req, res) => {
     const code = req.body.code;
-    const coupon = new Coupon ({
-        code: code,
-        date: new Date()
-    })
+    
+    if  (!code) {
+        res.send({msg: "Please fill all fields"})
+    }
+    else if (code.length < 8 || code.length > 8) {
+        res.send({msg: "Please enter 8 characters" })
+    }
+    else {
+
+        Coupon.findOne({code: code}).exec((error, coupon) => {
+            if (coupon) {
+                res.send({ msg: "Coupon code already entered"})
+            }
+
+            else{
+                const code = req.body.code;
+                const coupon = new Coupon({
+                    code: code,
+                    date: new Date(),
+                })
+                .save()
+                .then((result) => {
+                    res.send("Coupon added Succesfully");
+                    
+                })
+                .catch(err => {
+                    console.log(err);     
+                });
+            }
+    
+        })
+    }
+};
+
+exports.postRandomCoupon = (req, res) => {
+    var code = "";
+    var possible = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 8; i++) {
+        code += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+        const coupon = new Coupon({
+            code: code,
+            date: new Date(),
+
+        })
     .save()
     .then((value) => {
-        console.log(code)
+        console.log(code);
         res.send({msg: "Coupon added successfully"})
     })
     .catch((value) => console.log(value));
-};
 
+};
