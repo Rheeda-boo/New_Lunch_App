@@ -61,3 +61,16 @@ exports.postAddUser = (req, res, next ) => {
 
 };
 
+exports.getAllUsers = (req, res ) => {
+    User.find({}, (error, user) => {
+        if (error) {
+            console.error(error);
+            return res.send({error : error});
+        }
+        else{
+            console.log(user.length);
+            res.send(user.length);
+        }
+    })
+};
+

@@ -82,7 +82,7 @@ exports.postSignUp = (req, res, next) => {
                     name: name,
                     email: email,
                     password: password,
-                    role: "student",
+                    role: role,
                 });
 
                 bcrypt.genSalt(10, (error, salt) => {

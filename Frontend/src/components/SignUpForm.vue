@@ -14,14 +14,14 @@
             <input type="password" name="password" id="password" placeholder="Password *"> <br/>
 
             <label for="password"></label>
-            <input type="password" name="password2" id="password2" placeholder="Confirm Password *"> <br/><br>
+            <input type="password" name="password2" id="password2" placeholder="Confirm Password *"> <br/>
 
             <label>Sign Up as:</label> <br>
 
             <input type="radio" id="staff" name="role" value="staff">
-            <label for="staff">Staff</label> 
+            <label for="staff" class="staff"> Staff </label> 
             <input type="radio" id="trainee" name="role" value="trainee">
-            <label for="manager">Trainee</label><br><br>
+            <label for="manager" class="trainee"> Trainee</label><br>
 
             <p>Already have an accout? <router-link to="/login"> <i><b>Log in</b> </i></router-link> </p>
             <button class="signupbtn" type="submit" >Sign Up</button>
@@ -39,6 +39,11 @@ export default {
 
 body {
     background-color: #F7F4F2;
+}
+
+.staff, .trainee {
+    /* width: 50px; */
+    padding:  0px 5px;
 }
 
 .signupFrom {
