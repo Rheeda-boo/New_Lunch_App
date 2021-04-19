@@ -123,7 +123,6 @@ exports.postRandomCoupon = (req, res) => {
     for (var i = 0; i < 8; i++) {
         code += possible.charAt(Math.floor(Math.random() * possible.length));
     }
-
         const coupon = new Coupon({
             code: code,
             date: new Date(),
@@ -137,3 +136,19 @@ exports.postRandomCoupon = (req, res) => {
     .catch((value) => console.log(value));
 
 };
+
+exports.postValidateCoupon = (req, res) => {
+    const code = req.body.code;
+
+    Coupon.findOne({code: code}).exec((error, coupon) => {
+        if (!coupon) {
+            res.send("Please enter a valid Coupon ");
+            console.log("Please enter a valid Coupon ");
+
+        }
+        else {
+            res.send("A valid Coupon ");
+            console.log("A valid Coupon ");
+        }
+    })
+}

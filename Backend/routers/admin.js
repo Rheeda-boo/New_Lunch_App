@@ -12,6 +12,9 @@ router.get("/coupons", adminController.getAddCoupon);
 router.post("/addcoupons", adminController.postAddCoupon);
 router.post("/coupons", adminController.postRandomCoupon);
 
+router.post("/validate", adminController.postValidateCoupon);
+
+
 
 // router.post("/login", adminController.postLogin);
 // router.post("/signup", adminController.postSignUp);
