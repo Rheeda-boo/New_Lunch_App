@@ -33,3 +33,19 @@ exports.postaddFood = (req, res, next) => {
     
 
 };
+
+exports.getAllFood = (req, res ) => {
+    Menu.find({}, (error, menu) => {
+        const allfood = menu.length;
+
+        if (error) {
+            console.error(error);
+            return res.send({error : error});
+        }
+        else{
+            console.log(allfood);
+            res.send({allfood, menu});
+        };
+    });
+};
+
