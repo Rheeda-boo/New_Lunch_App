@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const bcrypt = require("bcrypt");
+const passport = require("passport");
 
 exports.getLogin = (req, res, next) => {
     res.send("Login Page");
@@ -113,7 +114,8 @@ exports.postSignUp = (req, res, next) => {
 //     res.send("Logged Out Page");
 // };
 
-// exports.postLogout = (req, res, next) => {
-//     req.logout();
-//     res.send("Logged Out");
-// };
+exports.postLogout = (req, res, next) => {
+    req.logout();
+    res.send("Logged Out");
+};
+
