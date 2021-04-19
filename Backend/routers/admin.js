@@ -11,7 +11,6 @@ router.get("/allusers", adminController.getAllUsers);
 router.get("/coupons", adminController.getAddCoupon);
 router.post("/addcoupons", adminController.postAddCoupon);
 router.post("/coupons", adminController.postRandomCoupon);
-
 router.post("/validate", adminController.postValidateCoupon);
 
 

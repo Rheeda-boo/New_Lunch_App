@@ -65,13 +65,15 @@ exports.postAddUser = (req, res, next ) => {
 
 exports.getAllUsers = (req, res ) => {
     User.find({}, (error, user) => {
+        const allusers = user.length;
+
         if (error) {
             console.error(error);
             return res.send({error : error});
         }
         else{
-            console.log(user.length);
-            res.send(user.length);
+            console.log(allusers);
+            res.send({allusers, user});
         };
     });
 };
@@ -151,4 +153,6 @@ exports.postValidateCoupon = (req, res) => {
             console.log("A valid Coupon ");
         }
     })
-}
+};
+
+

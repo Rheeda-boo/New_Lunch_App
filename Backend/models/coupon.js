@@ -10,8 +10,8 @@ const couponSchema =  new Schema({
     },
 
     date: {
-        // type: String,
-        // required: true,
+        type: String,
+        required: true,
     },
 
 });
