@@ -109,13 +109,9 @@ exports.postSignUp = (req, res, next) => {
 
 };
 
-// exports.getLogout = (req, res, next) => {
-//     req.logout();
-//     res.send("Logged Out Page");
-// };
-
 exports.postLogout = (req, res, next) => {
     req.logout();
     res.send("Logged Out");
+    console.log("Logged Out");
 };
 

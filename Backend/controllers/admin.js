@@ -65,6 +65,7 @@ exports.postAddUser = (req, res, next ) => {
 
 exports.getAllUsers = (req, res ) => {
     User.find({}, (error, user) => {
+        console.log(user);
         const allusers = user.length;
 
         if (error) {
@@ -73,7 +74,33 @@ exports.getAllUsers = (req, res ) => {
         }
         else{
             console.log(allusers);
-            res.send({allusers, user});
+            
+            let adminCounter = 0;
+            let staffCounter = 0;
+            let traineeCounter = 0;
+            let managerCounter = 0;
+
+            
+            for (let person of user) {
+              if (person.role === "admin") {
+                adminCounter++;
+              } else if (person.role === "manager") {
+                managerCounter++;
+              } else if (person.role === "staff") {
+                staffCounter++;
+              } else {
+                traineeCounter++;
+              } 
+            }
+            res.send(
+                {allusers , 
+                adminCounter,
+                managerCounter, 
+                staffCounter, 
+                traineeCounter, 
+                user
+            });
+                       
         };
     });
 };
