@@ -2,20 +2,22 @@
   
   <div>
     <Navbar/>
-    <Carousel/>
+    <!-- <Carousel/> -->
   </div>  
 </template>
   
 
 <script>
 
-import Carousel from '../components/Carousel.vue'
+// import Carousel from '../components/Carousel.vue'
 import Navbar from "../components/Navbar"
 
 
 export default {
   name: "Home",  
-  components: { Navbar,Carousel,  },
+  components: { Navbar,
+  // Carousel, 
+   },
 
 }
 </script>
